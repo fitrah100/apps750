@@ -1,0 +1,20 @@
+.#{$prefix}form-field-date {
+    .#{$prefix}form-date-trigger {
+        //AS-13231
+        @if $prefix=='x-'{
+            background-position: 0 center !important;
+        }
+        //end of AS-13231
+        @if $enable-font-icons and ($form-date-trigger-glyph != null) {
+            @include font-icon($form-date-trigger-glyph, $line-height: null);
+        } @else {
+            background-image: theme-background-image('form/date-trigger');
+
+            @if $include-rtl {
+                &.#{$prefix}rtl {
+                    background-image: theme-background-image('form/date-trigger-rtl');
+                }
+            }
+        }
+    }
+}
